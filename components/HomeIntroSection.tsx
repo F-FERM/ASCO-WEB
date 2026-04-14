@@ -62,7 +62,7 @@ export default function HomeIntroSection() {
             </motion.p>
 
             <motion.div variants={fadeUp}>
-              <Link href="/services">
+              <Link href="/service">
                 <button className="mt-6 bg-[#EFDF0E] text-black rounded-[10px] px-5 py-2.5 text-sm hover:opacity-90 hover:scale-[1.05] transition">
                   View Service →
                 </button>
