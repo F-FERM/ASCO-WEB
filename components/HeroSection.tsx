@@ -20,8 +20,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Content Wrapper */}
-      <div className="relative z-10 h-full flex items-end">
-        <Container className="pb-16 md:pb-24 lg:pb-32">
+      <div className="relative z-10 h-full flex items-center">
+        <Container>
           <div className="max-w-[865px]">
             <h1
               className="
