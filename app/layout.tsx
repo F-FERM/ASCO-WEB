@@ -21,9 +21,49 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ASCO",
+  metadataBase: new URL("https://www.ascoqatar.com"),
+
+  title: {
+    default: "ASCO Qatar",
+    template: "%s | ASCO Qatar",
+  },
+
   description:
-    "Engineering excellence that shapes the future of infrastructure",
+    "ASCO Qatar is a leading engineering consultancy firm delivering innovative infrastructure, architectural, and construction solutions.",
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
+  openGraph: {
+    title: "ASCO Qatar",
+    description:
+      "Engineering excellence that shapes the future of infrastructure.",
+    url: "https://www.ascoqatar.com",
+    siteName: "ASCO Qatar",
+    images: [
+      {
+        url: "/icon.png",
+        alt: "ASCO Qatar",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ASCO Qatar",
+    description:
+      "Engineering excellence that shapes the future of infrastructure.",
+    images: ["/icon.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
