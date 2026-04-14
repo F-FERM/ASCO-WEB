@@ -4,6 +4,7 @@ import About from "./about/page";
 import Service from "./service/page";
 import Clients from "./clients/page";
 import Careers from "./careers/page";
+import Contact from "./contact/page";
 
 export default function Page() {
   return (
@@ -13,6 +14,7 @@ export default function Page() {
       <Service />
       <Clients />
       <Careers />
+      <Contact/>
     </main>
   );
 }
