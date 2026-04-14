@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/Container";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
@@ -19,11 +20,15 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30" />
 
-      {/* Content Wrapper */}
+      {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <Container>
           <div className="max-w-[865px]">
-            <h1
+            {/* HEADING ANIMATION */}
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="
                 text-white font-semibold font-[Poppins]
                 text-[26px] leading-[40px]
@@ -35,25 +40,34 @@ export default function HeroSection() {
               Engineering excellence that shapes{" "}
               <br className="hidden sm:block" />
               the future of infrastructure.
-            </h1>
+            </motion.h1>
 
-            <Link href="/about">
-              <button
-                className="
-                  mt-6
-                  bg-[#EFDF0E]
-                  text-black
-                  font-medium
-                  rounded-[10px]
-                  px-[19px] py-[12px]
-                  flex items-center gap-[10px]
-                  text-sm sm:text-base
-                  hover:opacity-90 transition
-                "
-              >
-                Explore More About Us →
-              </button>
-            </Link>
+            {/* BUTTON ANIMATION */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              <Link href="/about">
+                <button
+                  className="
+                    mt-6
+                    bg-[#EFDF0E]
+                    text-black
+                    font-medium
+                    rounded-[10px]
+                    px-[19px] py-[12px]
+                    flex items-center gap-[10px]
+                    text-sm sm:text-base
+                    hover:opacity-90
+                    hover:scale-[1.05]
+                    transition
+                  "
+                >
+                  Explore More About Us →
+                </button>
+              </Link>
+            </motion.div>
           </div>
         </Container>
       </div>
