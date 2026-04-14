@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Container from "@/components/Container";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const logos = [
   "/clients_ (1).png",
@@ -43,17 +44,25 @@ export default function ClientsSection() {
           <h2 className="text-2xl md:text-3xl font-semibold">
             <span className="text-[#EFDF0E]">ASCO</span> CLIENTS
           </h2>
-
           <p className="mt-4 text-sm md:text-base text-gray-600">
             ASCO is an integral part of the landscape of the State of Qatar. We
             have developed much of the nation’s infrastructure and building
             sector. Our clients include most government departments, as well as
             several major local and international corporations.
           </p>
-
-          <button className="mt-6 bg-[#EFDF0E] px-5 py-2 rounded-[8px] text-sm">
-            View All →
-          </button>
+          <Link href="/clients">
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                y: -2,
+              }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="mt-6 bg-[#EFDF0E] px-5 py-2 rounded-[8px] text-sm"
+            >
+              View All →
+            </motion.button>
+          </Link>
         </div>
 
         {/* LOGO ROWS */}
@@ -62,32 +71,31 @@ export default function ClientsSection() {
           <div className="overflow-hidden">
             <div className="flex gap-8 md:gap-10 animate-marquee">
               {[...firstRow, ...firstRow].map((logo, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileHover={{
-                    scale: 1.08,
-                    y: -6,
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="min-w-[200px] md:min-w-[260px] flex items-center justify-center"
                 >
-                  <div className="relative group w-[140px] md:w-[200px] h-auto flex items-center justify-center">
-                    {/* GLOW EFFECT */}
-                    <div className="absolute inset-0 bg-[#EFDF0E]/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
-
-                    {/* IMAGE */}
+                  <motion.div
+                    whileHover={{
+                      scale: 1.08,
+                      y: -4,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20,
+                    }}
+                    className="flex items-center justify-center"
+                  >
                     <Image
                       src={logo}
                       alt="client"
                       width={200}
                       height={120}
-                      className="w-[140px] md:w-[200px] h-auto object-contain relative z-10 transition-all duration-300 group-hover:drop-shadow-lg"
+                      className="w-[140px] md:w-[200px] h-auto object-contain"
                     />
-
-                    {/* BORDER EFFECT */}
-                    <div className="absolute inset-0 border border-[#EFDF0E]/30 opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -96,32 +104,31 @@ export default function ClientsSection() {
           <div className="overflow-hidden">
             <div className="flex gap-8 md:gap-10 animate-marquee-reverse">
               {[...secondRow, ...secondRow].map((logo, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileHover={{
-                    scale: 1.08,
-                    y: -6,
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="min-w-[200px] md:min-w-[260px] flex items-center justify-center"
                 >
-                  <div className="relative group w-[140px] md:w-[200px] h-auto flex items-center justify-center">
-                    {/* GLOW EFFECT */}
-                    <div className="absolute inset-0 bg-[#EFDF0E]/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
-
-                    {/* IMAGE */}
+                  <motion.div
+                    whileHover={{
+                      scale: 1.08,
+                      y: -4,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 20,
+                    }}
+                    className="flex items-center justify-center"
+                  >
                     <Image
                       src={logo}
                       alt="client"
                       width={200}
                       height={120}
-                      className="w-[140px] md:w-[200px] h-auto object-contain relative z-10 transition-all duration-300 group-hover:drop-shadow-lg"
+                      className="w-[140px] md:w-[200px] h-auto object-contain"
                     />
-
-                    {/* BORDER EFFECT */}
-                    <div className="absolute inset-0 border border-[#EFDF0E]/30 opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>
