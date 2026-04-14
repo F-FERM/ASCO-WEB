@@ -1,7 +1,12 @@
+import ClientIntroSection from "@/components/clients/ClientIntroSection";
 import React from "react";
 
 const Clients = () => {
-  return <main></main>;
+  return (
+    <main>
+      <ClientIntroSection />
+    </main>
+  );
 };
 
 export default Clients;
