@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Container from "@/components/Container";
+import { motion } from "framer-motion";
 
 const logos = [
   "/clients_ (1).png",
@@ -61,18 +62,32 @@ export default function ClientsSection() {
           <div className="overflow-hidden">
             <div className="flex gap-8 md:gap-10 animate-marquee">
               {[...firstRow, ...firstRow].map((logo, i) => (
-                <div
+                <motion.div
                   key={i}
+                  whileHover={{
+                    scale: 1.08,
+                    y: -6,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="min-w-[200px] md:min-w-[260px] flex items-center justify-center"
                 >
-                  <Image
-                    src={logo}
-                    alt="client"
-                    width={200}
-                    height={120}
-                    className="w-[140px] md:w-[200px] h-auto object-contain"
-                  />
-                </div>
+                  <div className="relative group w-[140px] md:w-[200px] h-auto flex items-center justify-center">
+                    {/* GLOW EFFECT */}
+                    <div className="absolute inset-0 bg-[#EFDF0E]/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
+
+                    {/* IMAGE */}
+                    <Image
+                      src={logo}
+                      alt="client"
+                      width={200}
+                      height={120}
+                      className="w-[140px] md:w-[200px] h-auto object-contain relative z-10 transition-all duration-300 group-hover:drop-shadow-lg"
+                    />
+
+                    {/* BORDER EFFECT */}
+                    <div className="absolute inset-0 border border-[#EFDF0E]/30 opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -81,18 +96,32 @@ export default function ClientsSection() {
           <div className="overflow-hidden">
             <div className="flex gap-8 md:gap-10 animate-marquee-reverse">
               {[...secondRow, ...secondRow].map((logo, i) => (
-                <div
+                <motion.div
                   key={i}
+                  whileHover={{
+                    scale: 1.08,
+                    y: -6,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="min-w-[200px] md:min-w-[260px] flex items-center justify-center"
                 >
-                  <Image
-                    src={logo}
-                    alt="client"
-                    width={200}
-                    height={120}
-                    className="w-[140px] md:w-[200px] h-auto object-contain"
-                  />
-                </div>
+                  <div className="relative group w-[140px] md:w-[200px] h-auto flex items-center justify-center">
+                    {/* GLOW EFFECT */}
+                    <div className="absolute inset-0 bg-[#EFDF0E]/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
+
+                    {/* IMAGE */}
+                    <Image
+                      src={logo}
+                      alt="client"
+                      width={200}
+                      height={120}
+                      className="w-[140px] md:w-[200px] h-auto object-contain relative z-10 transition-all duration-300 group-hover:drop-shadow-lg"
+                    />
+
+                    {/* BORDER EFFECT */}
+                    <div className="absolute inset-0 border border-[#EFDF0E]/30 opacity-0 group-hover:opacity-100 transition duration-300 rounded-lg" />
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
