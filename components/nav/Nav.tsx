@@ -20,7 +20,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white border-b">
+    <nav className="w-full bg-white">
       <Container>
         <div className="flex items-center justify-between h-16">
           {/* LEFT: LOGO */}
@@ -54,7 +54,7 @@ export default function Navbar() {
           </div>
 
           {/* DESKTOP SEARCH */}
-          <div className="hidden md:flex items-center bg-white border rounded-full px-3 py-1.5 w-[200px]">
+          <div className="hidden md:flex items-center bg-white px-3 py-1.5 w-[200px]">
             <input
               type="text"
               placeholder="Search"
