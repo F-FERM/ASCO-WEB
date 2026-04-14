@@ -34,3 +34,45 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+/* client section */
+/* LEFT → RIGHT */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* RIGHT → LEFT */
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* DESKTOP */
+.animate-marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 18s linear infinite;
+}
+
+/* MOBILE (faster) */
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation: marquee 10s linear infinite;
+  }
+
+  .animate-marquee-reverse {
+    animation: marquee-reverse 10s linear infinite;
+  }
+}
