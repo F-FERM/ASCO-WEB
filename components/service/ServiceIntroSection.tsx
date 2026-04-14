@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Container from "@/components/Container";
+import { motion } from "framer-motion";
 
 const services = [
   "Building Permit Processing",
@@ -20,69 +21,112 @@ const services = [
 
 export default function ServiceIntroSection() {
   return (
-    <section className="bg-[white] py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <Container>
         {/* TOP SECTION */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* IMAGE */}
-          <div className="flex justify-center md:justify-start">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center md:justify-start"
+          >
             <div className="relative w-full max-w-[520px] h-[260px] sm:h-[300px] md:h-[320px]">
-              <div className="w-full h-full overflow-hidden rounded-[20px] clip-shape-2">
-                <Image
-                  src="/service_intro.png"
-                  alt="Services"
-                  fill
-                  className="object-cover"
-                />
+              <div className="w-full h-full overflow-hidden rounded-[20px]">
+                <motion.div
+                  initial={{ scale: 1.2 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 1.2 }}
+                  viewport={{ once: true }}
+                  className="w-full h-full"
+                >
+                  <Image
+                    src="/service_intro.png"
+                    alt="Services"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* TEXT */}
-          <div className="text-gray-600 text-sm md:text-base leading-relaxed space-y-4">
-            <p>
-              ASCO provides a comprehensive range of services, delivered by
-              globally skilled, accredited and experienced staff. From initial
-              concepts to final documentation, we deliver a high-quality,
-              cost-effective product at all stages of the project.
-            </p>
-
-            <p>
-              Supporting all project design and management needs, our CAD
-              department deploys the latest AutoCAD releases and associated
-              architectural, structural, MEP and civil engineering design
-              software. With a fully trained complement of CAD technicians and
-              engineers, a comprehensive library of standard details, and the
-              ability to program task-specific AutoLISP routines, ASCO can
-              quickly and efficiently produce contract drawings.
-            </p>
-
-            <p>
-              ASCO also employs a dedicated department to smoothly facilitate
-              the vital task of building permit processing for our local and
-              international clients.
-            </p>
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              show: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="text-gray-600 text-sm md:text-base leading-relaxed space-y-4"
+          >
+            {[
+              `ASCO provides a comprehensive range of services, delivered by globally skilled, accredited and experienced staff. From initial concepts to final documentation, we deliver a high-quality, cost-effective product at all stages of the project.`,
+              `Supporting all project design and management needs, our CAD department deploys the latest AutoCAD releases and associated architectural, structural, MEP and civil engineering design software.`,
+              `ASCO also employs a dedicated department to smoothly facilitate the vital task of building permit processing for our local and international clients.`,
+            ].map((text, i) => (
+              <motion.p
+                key={i}
+                variants={{
+                  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    transition: {
+                      duration: 0.7,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    },
+                  },
+                }}
+              >
+                {text}
+              </motion.p>
+            ))}
+          </motion.div>
         </div>
 
         {/* SERVICES GRID */}
-        <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08 } },
+          }}
+          className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6"
+        >
           {services.map((item, i) => (
-            <div
+            <motion.div
               key={i}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5 },
+                },
+              }}
+              whileHover={{
+                y: -6,
+                scale: 1.02,
+              }}
               className="
-    flex items-center justify-between
-    border border-gray-200
-    rounded-[20px]
-    px-[25px] py-[20px] md:py-[24px]
-    bg-[#white]
-    hover:bg-white hover:shadow-sm
-    transition
-    min-h-[77px]
-    shadow-lg
-  "
+                flex items-center justify-between
+                border border-gray-200
+                rounded-[20px]
+                px-[25px] py-[20px] md:py-[24px]
+                bg-white
+                shadow-md
+                transition
+                min-h-[77px]
+              "
             >
-              {/* LEFT CONTENT */}
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 bg-[#EFDF0E] rounded-full shrink-0" />
 
@@ -90,9 +134,9 @@ export default function ServiceIntroSection() {
                   {item}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );
