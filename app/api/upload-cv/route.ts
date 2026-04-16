@@ -185,7 +185,7 @@ export async function POST(req: NextRequest) {
 </html>
 `;
 
-    await transporter.sendMail({
+    transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.RECEIVER_EMAIL,
       subject: `📄 New CV Submission - ${originalName}`,
