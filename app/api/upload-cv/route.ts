@@ -185,20 +185,26 @@ export async function POST(req: NextRequest) {
 </html>
 `;
 
-    transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_EMAIL,
-      subject: `📄 New CV Submission - ${originalName}`,
-      html: emailHTML,
-      attachments: [
-        {
-          filename: originalName,
-          content: buffer,
-          contentType: file.type,
-        },
-      ],
-    });
+    const emailBuffer = Buffer.from(buffer);
 
+    setImmediate(() => {
+      transporter
+        .sendMail({
+          from: process.env.EMAIL_USER,
+          to: process.env.RECEIVER_EMAIL,
+          subject: `📄 New CV Submission - ${originalName}`,
+          html: emailHTML,
+          attachments: [
+            {
+              filename: originalName,
+              content: emailBuffer,
+              contentType: file.type,
+            },
+          ],
+        })
+        .then(() => console.log("Email sent"))
+        .catch((err) => console.error("Email failed:", err));
+    });
     return NextResponse.json({
       success: true,
       message: "CV sent successfully via email",
