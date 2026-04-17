@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ServiceHeroSection from "@/components/service/ServiceHeroSection";
 import ServiceIntroSection from "@/components/service/ServiceIntroSection";
 import React from "react";
+import Navbar from "@/components/nav/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "ASCO Services | Engineering & Infrastructure Solutions in Qatar",
@@ -43,8 +45,10 @@ export const metadata: Metadata = {
 const Service = () => {
   return (
     <main>
+      <Navbar />
       <ServiceHeroSection />
       <ServiceIntroSection />
+      <Footer />
     </main>
   );
 };
