@@ -41,12 +41,6 @@ export default function ContactSection() {
                 <p className="mt-1">info@ascoqatar.com</p>
               </div>
 
-              {/* SECOND EMAIL */}
-              <div>
-                <h3 className="font-medium text-black">Email:</h3>
-                <p className="mt-1">info@ascoqatar.com</p>
-              </div>
-
               {/* WORKING HOURS */}
               <div>
                 <h3 className="font-medium text-black">WORKING HOURS</h3>
