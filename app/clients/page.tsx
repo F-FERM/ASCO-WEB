@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import ClientIntroSection from "@/components/clients/ClientIntroSection";
 import ClientsGridSection from "@/components/clients/ClientsGridSection";
 import React from "react";
+import Navbar from "@/components/nav/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "ASCO Clients | Trusted Engineering Partnerships in Qatar",
@@ -43,8 +45,10 @@ export const metadata: Metadata = {
 const Clients = () => {
   return (
     <main>
+      <Navbar />
       <ClientIntroSection />
       <ClientsGridSection />
+      <Footer />
     </main>
   );
 };
