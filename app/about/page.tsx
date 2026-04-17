@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import AboutSection from "@/components/about/AboutSection";
 import React from "react";
+import Navbar from "@/components/nav/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "About ASCO Qatar | Engineering Consultancy Experts",
@@ -42,7 +44,9 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <main>
+      <Navbar />
       <AboutSection />
+      <Footer />
     </main>
   );
 };

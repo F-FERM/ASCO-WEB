@@ -4,6 +4,8 @@ import HeroSection from "@/components/HeroSection";
 import HomeIntroSection from "@/components/HomeIntroSection";
 import ServicesSection from "@/components/ServicesSection";
 import React from "react";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/nav/Nav";
 
 export const metadata: Metadata = {
   title: "ASCO Qatar | Engineering Consultancy & Infrastructure Solutions",
@@ -68,10 +70,12 @@ const Home = () => {
           }),
         }}
       />
+      <Navbar />
       <HeroSection />
       <HomeIntroSection />
       <ServicesSection />
       <ClientsSection />
+      <Footer />
     </main>
   );
 };
