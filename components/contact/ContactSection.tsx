@@ -2,22 +2,77 @@
 
 import Container from "@/components/Container";
 import { FaWhatsapp } from "react-icons/fa";
+import { useState } from "react";
+import api from "@/lib/axios";
+import Swal from "sweetalert2";
 
 export default function ContactSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      return Swal.fire(
+        "Missing Fields",
+        "Name, Email and Message are required",
+        "warning",
+      );
+    }
+
+    try {
+      setLoading(true);
+
+      await api.post("/contact", form);
+
+      Swal.fire({
+        icon: "success",
+        title: "Message Sent",
+        text: "We will get back to you soon",
+      });
+
+      // reset form
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err: any) {
+      Swal.fire(
+        "Error",
+        err?.response?.data?.message || "Failed to send message",
+        "error",
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="bg-white py-16 md:py-24">
       <Container>
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* LEFT SIDE */}
           <div>
-            {/* TITLE */}
             <h1 className="text-[28px] md:text-[34px] font-semibold text-black">
               CONTACT <span className="text-[#E6D400]">ASCO</span>
             </h1>
 
-            {/* DETAILS */}
             <div className="mt-8 space-y-6 text-gray-600 text-sm md:text-[15px] leading-relaxed">
-              {/* COMPANY */}
               <div>
                 <h3 className="font-semibold text-black">
                   ASCO Qatar Consulting Engineers
@@ -28,7 +83,6 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              {/* PHONE */}
               <div>
                 <h3 className="font-semibold text-black">Telephone:</h3>
                 <p className="mt-2">
@@ -37,13 +91,11 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              {/* EMAIL */}
               <div>
                 <h3 className="font-semibold text-black">Email:</h3>
                 <p className="mt-2">info@ascoqatar.com</p>
               </div>
 
-              {/* WORKING HOURS */}
               <div>
                 <h3 className="font-semibold text-black">WORKING HOURS</h3>
                 <p className="mt-2">
@@ -80,11 +132,14 @@ export default function ContactSection() {
               </h2>
 
               {/* FORM */}
-              <form className="mt-6 space-y-5">
+              <form onSubmit={handleSubmit} className="mt-6 space-y-5">
                 {/* NAME */}
                 <div>
                   <label className="text-sm text-gray-700">Your Name*</label>
                   <input
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
                     type="text"
                     placeholder="Your Name..."
                     className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
@@ -95,6 +150,9 @@ export default function ContactSection() {
                 <div>
                   <label className="text-sm text-gray-700">Your Email*</label>
                   <input
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
                     type="email"
                     placeholder="example@gmail.com"
                     className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
@@ -105,6 +163,9 @@ export default function ContactSection() {
                 <div>
                   <label className="text-sm text-gray-700">Subject</label>
                   <input
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
                     type="text"
                     placeholder="Title..."
                     className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
@@ -113,8 +174,11 @@ export default function ContactSection() {
 
                 {/* MESSAGE */}
                 <div>
-                  <label className="text-sm text-gray-700">Your Message</label>
+                  <label className="text-sm text-gray-700">Your Message*</label>
                   <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
                     rows={4}
                     placeholder="Type Here..."
                     className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black resize-none"
@@ -124,9 +188,10 @@ export default function ContactSection() {
                 {/* BUTTON */}
                 <button
                   type="submit"
+                  disabled={loading}
                   className="w-full mt-2 bg-[#E6D400] text-black rounded-[10px] py-2.5 text-sm md:text-base font-medium hover:opacity-90 transition"
                 >
-                  Send Now
+                  {loading ? "Sending..." : "Send Now"}
                 </button>
               </form>
             </div>
