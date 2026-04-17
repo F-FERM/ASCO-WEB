@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ContactSection from "@/components/contact/ContactSection";
 import React from "react";
+import Navbar from "@/components/nav/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Contact ASCO Qatar | Get in Touch with Engineering Experts",
@@ -35,14 +37,16 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/icon.png", 
+    icon: "/icon.png",
   },
 };
 
 const Contact = () => {
   return (
     <main>
+      <Navbar />
       <ContactSection />
+      <Footer />
     </main>
   );
 };
