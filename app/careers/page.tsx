@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import CareerContentSection from "@/components/careers/CareerContentSection";
 import CareerHeroSection from "@/components/careers/CareerHeroSection";
 import React from "react";
+import Navbar from "@/components/nav/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Careers at ASCO Qatar | Join Our Engineering Team",
@@ -43,8 +45,10 @@ export const metadata: Metadata = {
 const Careers = () => {
   return (
     <main>
+      <Navbar />
       <CareerHeroSection />
       <CareerContentSection />
+      <Footer />
     </main>
   );
 };
