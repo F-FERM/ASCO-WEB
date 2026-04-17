@@ -5,14 +5,20 @@ import Container from "@/components/Container";
 
 export default function AboutSection() {
   return (
-    <section className="bg-[#white] py-20 md:py-28">
+    <section className="bg-white py-20 md:py-28">
       <Container>
         {/* TOP SECTION */}
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* IMAGE */}
+          {/* IMAGE WITH ANGLED SHAPE */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative w-full max-w-[600px] h-[350px] md:h-[420px]">
-              <div className="w-full h-full overflow-hidden rounded-[24px]">
+            <div className="relative w-full max-w-[600px] h-[360px] md:h-[420px]">
+              <div
+                className="w-full h-full overflow-hidden"
+                style={{
+                  clipPath: "polygon(12% 0, 100% 0, 88% 100%, 0% 100%)",
+                  borderRadius: "20px",
+                }}
+              >
                 <Image
                   src="/about_img.png"
                   alt="About ASCO"
@@ -63,10 +69,45 @@ export default function AboutSection() {
           </div>
         </div>
 
+        {/* ISO CERTIFICATIONS */}
+        <div className="grid md:grid-cols-3 gap-6 mt-14">
+          {[
+            {
+              title: "ISO 9001:2015",
+              desc: "QUALITY MANAGEMENT SYSTEM (QMS)",
+            },
+            {
+              title: "ISO 14001:2015",
+              desc: "ENVIRONMENTAL MANAGEMENT SYSTEM (EMS)",
+            },
+            {
+              title: "ISO 45001:2018",
+              desc: "OCCUPATIONAL HEALTH AND SAFETY MANAGEMENT SYSTEM (OHSMS)",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className={`rounded-[18px] p-6 text-center bg-white shadow-md border ${"border-gray-200"}`}
+            >
+              {/* ICON */}
+              <div className="flex justify-center mb-4">
+                <div className="w-10 h-10 bg-[#EFDF0E] rounded-full flex items-center justify-center text-black font-bold">
+                  ✓
+                </div>
+              </div>
+
+              <h4 className="font-semibold text-gray-800 text-sm">
+                {item.title}
+              </h4>
+              <p className="text-xs text-gray-600 mt-2">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
         {/* VISION + MISSION */}
         <div className="grid md:grid-cols-2 gap-6 mt-16 md:mt-20">
           {/* VISION */}
-          <div className="bg-white rounded-[20px] p-[30px] shadow-lg">
+          <div className="bg-white rounded-[20px] p-[30px] shadow-lg border border-gray-100">
             <h3 className="text-xl font-semibold mb-4">
               <span className="text-[#EFDF0E]">ASCO</span> VISION
             </h3>
@@ -79,7 +120,7 @@ export default function AboutSection() {
           </div>
 
           {/* MISSION */}
-          <div className="bg-white rounded-[20px] p-[30px] shadow-lg">
+          <div className="bg-white rounded-[20px] p-[30px] shadow-lg border border-gray-100">
             <h3 className="text-xl font-semibold mb-4">
               <span className="text-[#EFDF0E]">ASCO</span> MISSION
             </h3>
