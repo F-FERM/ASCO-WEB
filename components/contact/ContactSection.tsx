@@ -104,7 +104,7 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              <a
+              {/* <a
                 href="https://wa.me/97444100500"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -120,7 +120,7 @@ export default function ContactSection() {
                   </p>
                   <p className="text-gray-500 text-sm mt-1">WhatsApp</p>
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
 
