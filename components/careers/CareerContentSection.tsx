@@ -46,6 +46,10 @@ export default function CareerContentSection() {
 
   // ================= APPLY =================
   const handleApply = async () => {
+    if (!openJobId) {
+      return Swal.fire("Error", "Invalid job selection", "error");
+    }
+
     if (!file) {
       return Swal.fire("No file selected", "Upload your CV", "warning");
     }
@@ -63,9 +67,10 @@ export default function CareerContentSection() {
         didOpen: () => Swal.showLoading(),
       });
 
-      // STEP 1: Upload CV
+      // ================= STEP 1: Upload CV =================
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("jobId", openJobId);
 
       const uploadRes = await api.post("/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -73,7 +78,7 @@ export default function CareerContentSection() {
 
       const cvUrl = uploadRes.data.url;
 
-      // STEP 2: Create application
+      // ================= STEP 2: Create application =================
       await api.post("/job-applications", {
         jobId: openJobId,
         name,
@@ -89,11 +94,12 @@ export default function CareerContentSection() {
         text: "Your application has been submitted",
       });
 
-      // reset
+      // ================= RESET =================
       setFile(null);
       setName("");
       setEmail("");
       setOpenJobId(null);
+
       if (fileInputRef.current) fileInputRef.current.value = "";
     } catch (err) {
       Swal.close();
@@ -106,7 +112,9 @@ export default function CareerContentSection() {
 
   return (
     <section className="bg-white py-16 md:py-24">
+      {" "}
       <Container>
+        {" "}
         <div className="max-w-[900px] mx-auto space-y-4">
           {jobs.map((job) => {
             const isOpen = openJobId === job._id;
