@@ -11,6 +11,7 @@ export default function Sidebar() {
     { name: "Jobs", href: "/admin/dashboard/jobs" },
     { name: "Applications", href: "/admin/dashboard/applications" },
     { name: "Contacts", href: "/admin/dashboard/contacts" },
+    { name: "Clients", href: "/admin/dashboard/clients" },
   ];
 
   return (
