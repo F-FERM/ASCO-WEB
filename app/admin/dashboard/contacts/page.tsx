@@ -52,7 +52,7 @@ export default function ContactsPage() {
                   <th className="p-4">#</th>
                   <th className="p-4">User</th>
                   <th className="p-4">Email</th>
-                  <th className="p-4">Phone</th>
+                  <th className="p-4">Subject</th>
                   <th className="p-4">Message</th>
                   <th className="p-4">Date</th>
                 </tr>
@@ -95,8 +95,8 @@ export default function ContactsPage() {
 
                       {/* PHONE */}
                       <td className="p-4 text-gray-600">
-                        {item.phone ? (
-                          item.phone
+                        {item.subject ? (
+                          item.subject
                         ) : (
                           <span className="text-gray-400 text-xs">
                             Not provided
