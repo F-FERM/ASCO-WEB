@@ -12,20 +12,12 @@ export default function AboutSection() {
           {/* IMAGE WITH ANGLED SHAPE */}
           <div className="flex justify-center md:justify-start">
             <div className="relative w-full max-w-[600px] h-[360px] md:h-[420px]">
-              <div
-                className="w-full h-full overflow-hidden"
-                style={{
-                  clipPath: "polygon(12% 0, 100% 0, 88% 100%, 0% 100%)",
-                  borderRadius: "20px",
-                }}
-              >
-                <Image
-                  src="/about_img.png"
-                  alt="About ASCO"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src="/about_img.png"
+                alt="About ASCO"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
