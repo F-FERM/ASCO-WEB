@@ -10,7 +10,7 @@ export default function CareerIntroSection() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
           {/* LEFT - IMAGE */}
-          <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden shadow-sm">
+          <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden">
             <Image
               src="/career_team.png"
               alt="ASCO Team"
