@@ -47,7 +47,6 @@ const Clients = () => {
     <main>
       <Navbar />
       <ClientIntroSection />
-      <ClientsGridSection />
       <Footer />
     </main>
   );

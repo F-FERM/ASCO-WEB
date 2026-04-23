@@ -122,7 +122,7 @@ export default function ClientsSection() {
         {/* TITLE */}
         <div className="text-center max-w-[700px] mx-auto">
           <h2 className="text-2xl md:text-3xl font-semibold">
-            <span className="text-[#EFDF0E]">ASCO</span> CLIENTS
+            <span className="text-[#EFDF0E]">ASCO</span> <span className="text-black">CLIENTS</span>
           </h2>
 
           <p className="mt-4 text-sm md:text-base text-gray-600">
@@ -132,7 +132,7 @@ export default function ClientsSection() {
             several major local and international corporations.
           </p>
 
-          <button className="mt-6 bg-[#EFDF0E] px-5 py-2 rounded-[8px] text-sm hover:bg-[#e8d600] transition-colors">
+          <button className="mt-6 bg-[#EFDF0E] px-5 py-2 rounded-[8px] text-sm hover:bg-[#e8d600] transition-colors text-black">
             View All →
           </button>
         </div>

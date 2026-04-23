@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Container from "@/components/Container";
+import ClientsGridSection from "./ClientsGridSection";
 
 export default function ClientIntroSection() {
   return (
@@ -49,6 +50,7 @@ export default function ClientIntroSection() {
           </div>
         </div>
       </Container>
+      <ClientsGridSection />
     </section>
   );
 }

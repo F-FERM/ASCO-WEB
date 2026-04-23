@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Container from "@/components/Container";
 import { motion } from "framer-motion";
+import CareerCv from "./CareerCv";
 
 export default function CareerIntroSection() {
   return (
@@ -57,6 +58,8 @@ export default function CareerIntroSection() {
           </div>
         </div>
       </Container>
+
+      <CareerCv />
     </section>
   );
 }

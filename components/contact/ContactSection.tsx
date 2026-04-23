@@ -142,7 +142,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     type="text"
                     placeholder="Your Name..."
-                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
+                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black text-black"
                   />
                 </div>
 
@@ -155,7 +155,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     type="email"
                     placeholder="example@gmail.com"
-                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
+                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black text-black"
                   />
                 </div>
 
@@ -168,7 +168,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     type="text"
                     placeholder="Title..."
-                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black"
+                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black text-black"
                   />
                 </div>
 
@@ -181,7 +181,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="Type Here..."
-                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black resize-none"
+                    className="mt-2 w-full border border-gray-200 rounded-[10px] px-4 py-2.5 text-sm outline-none focus:border-black resize-none text-black"
                   />
                 </div>
 

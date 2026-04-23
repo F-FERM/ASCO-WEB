@@ -50,7 +50,6 @@ const Careers = () => {
       <Navbar />
       <CareerHeroSection />
       <CareerIntroSection />
-      <CareerCv />
       <CareerContentSection />
       <Footer />
     </main>

@@ -24,7 +24,7 @@ export default function AboutSection() {
           {/* TEXT */}
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
-              ABOUT <span className="text-[#EFDF0E]">ASCO</span>
+              <span className="text-black">ABOUT</span> <span className="text-[#EFDF0E]">ASCO</span>
             </h2>
 
             <div className="space-y-4 text-sm md:text-base text-gray-600 leading-relaxed">
@@ -100,7 +100,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-6 mt-16 md:mt-20">
           {/* VISION */}
           <div className="bg-white rounded-[20px] p-[30px] shadow-lg border border-gray-100">
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl font-semibold mb-4 text-black">
               <span className="text-[#EFDF0E]">ASCO</span> VISION
             </h3>
 
@@ -113,7 +113,7 @@ export default function AboutSection() {
 
           {/* MISSION */}
           <div className="bg-white rounded-[20px] p-[30px] shadow-lg border border-gray-100">
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl font-semibold mb-4 text-black">
               <span className="text-[#EFDF0E]">ASCO</span> MISSION
             </h3>
 

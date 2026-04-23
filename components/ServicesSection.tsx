@@ -84,7 +84,7 @@ export default function ServicesSection() {
       <Container>
         {/* TITLE */}
         <h2 className="text-2xl md:text-3xl font-semibold mb-10">
-          <span className="text-[#EFDF0E]">ASCO</span> SERVICES
+          <span className="text-[#EFDF0E]">ASCO</span> <span className="text-black">SERVICES</span>
         </h2>
 
         {/* SCROLL AREA */}
@@ -132,12 +132,12 @@ export default function ServicesSection() {
               "
             >
               {/* NUMBER */}
-              <div className="flex justify-end text-3xl md:text-4xl font-semibold">
+              <div className="flex justify-end text-3xl md:text-4xl font-semibold text-black">
                 {item.id}
               </div>
 
               {/* TITLE */}
-              <div className="text-sm md:text-base font-medium leading-snug max-w-[180px]">
+              <div className="text-sm md:text-base font-medium leading-snug max-w-[180px] text-black">
                 {item.title}
               </div>
             </div>
