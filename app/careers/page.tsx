@@ -5,6 +5,7 @@ import React from "react";
 import Navbar from "@/components/nav/Nav";
 import Footer from "@/components/Footer";
 import CareerIntroSection from "@/components/careers/CareerIntroSection";
+import CareerCv from "@/components/careers/CareerCv";
 
 export const metadata: Metadata = {
   title: "Careers at ASCO Qatar | Join Our Engineering Team",
@@ -49,6 +50,7 @@ const Careers = () => {
       <Navbar />
       <CareerHeroSection />
       <CareerIntroSection />
+      <CareerCv />
       <CareerContentSection />
       <Footer />
     </main>
